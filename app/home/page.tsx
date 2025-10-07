@@ -6,6 +6,7 @@ import gsap from "gsap";
 export default function HomePage() {
   const opaRef = useRef(null);
   const navbarRef = useRef(null);
+  const pRef = useRef(null);
 
   useEffect(() => {
     gsap.to(opaRef.current, {
@@ -14,6 +15,11 @@ export default function HomePage() {
       duration: 0.5,
     });
     gsap.to(navbarRef.current, {
+      opacity: 1,
+      delay: 2.5,
+      duration: 0.5,
+    });
+    gsap.to(pRef.current, {
       opacity: 1,
       delay: 2,
       duration: 0.5,
@@ -38,11 +44,18 @@ export default function HomePage() {
       <div className="z-20 text-white absolute text-center">
         <h1 className="text-[250px] font-daffiys">KAPE</h1>
         <p
-          className="text-4xl font-daffiys fixed bottom-70 left-185 opacity-0"
+          className="text-4xl font-daffiys fixed bottom-85 left-185 opacity-0 text-gray-200"
           ref={opaRef}
         >
           Brewed with Pinoy Heart
         </p>
+        <div className="w-[700px]">
+          <p className="text-gray-400 text-lg opacity-0" ref={pRef}>
+            Sourced and brewed with the deep passion and unwavering commitment
+            characteristic of the Pinoy people, our coffee brings the rich,
+            diverse flavors of the Philippines right to your cup.
+          </p>
+        </div>
       </div>
     </div>
   );
