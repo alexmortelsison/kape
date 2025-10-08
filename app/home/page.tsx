@@ -27,7 +27,7 @@ export default function HomePage() {
     });
   }, []);
   return (
-    <div className="h-[100vh] overflow-hidden flex justify-center items-center">
+    <div className="h-[100vh] overflow-hidden flex justify-center items-center relative inset-0">
       <div className="relative -z-50 ">
         <video
           src="/coffee.mp4"
@@ -35,20 +35,25 @@ export default function HomePage() {
           loop
           muted
           playsInline
-          className="object-cover"
+          className="object-cover w-screen min-h-screen"
         ></video>
       </div>
       <div className="bg-gradient-to-b from-black/80 via-transparent to-black/80 absolute z-10 inset-0"></div>
-      <div className="z-20 text-white absolute text-center">
-        <h1 className="text-[250px] font-daffiys">KAPE</h1>
+      <div className="z-20 text-white absolute text-center flex flex-col justify-center items-center">
+        <h1 className="lg:text-[250px] text-4xl md:text-9xl font-daffiys">
+          KAPE
+        </h1>
         <p
-          className="text-4xl font-daffiys fixed bottom-95 left-185 opacity-0 text-gray-200"
+          className="lg:text-4xl text-xl md:text-2xl font-daffiys left-1/2 xl:bottom-95 xl:left-185 opacity-0 text-gray-200"
           ref={opaRef}
         >
           Brewed with Pinoy Heart
         </p>
-        <div className="w-[700px] pt-8">
-          <p className="text-gray-400 text-lg opacity-0" ref={pRef}>
+        <div className="xl:lg:w-[700px] pt-8 px-8">
+          <p
+            className="text-gray-400 lg:text-lg text-sm opacity-0 md:w-2/3 lg:w-full mx-auto"
+            ref={pRef}
+          >
             Sourced and brewed with the deep passion and unwavering commitment
             characteristic of the Pinoy people, our coffee brings the rich,
             diverse flavors of the Philippines right to your cup.

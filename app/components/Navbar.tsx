@@ -35,7 +35,7 @@ export default function Navbar() {
   const pathname = usePathname();
   return (
     <div
-      className="absolute text-white z-20 inset-0 flex opacity-0"
+      className="absolute text-white z-20 inset-0 lg:inline-flex opacity-0 hidden"
       ref={navbarRef}
     >
       <div className="relative mx-auto h-[100px]">
@@ -48,7 +48,7 @@ export default function Navbar() {
               </h1>
             </Link>
           </div>
-          <div className="flex space-x-4 z-30">
+          <div className="flex space-x-4 z-30 justify-center items-center">
             {socials.map((item, index) => (
               <div key={index}>
                 <Link
