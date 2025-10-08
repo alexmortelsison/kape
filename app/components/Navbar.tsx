@@ -1,3 +1,4 @@
+"use client";
 import { AiFillPhone } from "react-icons/ai";
 import { BiShoppingBag } from "react-icons/bi";
 import { AiOutlineHome } from "react-icons/ai";
@@ -6,6 +7,7 @@ import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
 import Link from "next/link";
 import React from "react";
+import { usePathname } from "next/navigation";
 
 const socials = [
   { icon: <BsFacebook />, link: "" },
@@ -14,12 +16,13 @@ const socials = [
 ];
 
 const navLinks = [
-  { icon: <AiOutlineHome />, label: "Home", link: "" },
+  { icon: <AiOutlineHome />, label: "Home", link: "/home" },
   { icon: <BiShoppingBag />, label: "Shop", link: "" },
   { icon: <AiFillPhone />, label: "Contact", link: "" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   return (
     <div className="absolute text-white z-20 inset-0 flex">
       <div className="relative mx-auto h-[100px]">
@@ -27,22 +30,36 @@ export default function Navbar() {
         <div className="flex justify-between w-screen items-center border-b border-dashed max-w-7xl">
           <div className="py-8 z-30 ">
             <Link href={"/"}>
-              <h1 className="font-daffiys text-2xl">KAPE</h1>
+              <h1 className="font-daffiys text-2xl hover:text-amber-500">
+                KAPE
+              </h1>
             </Link>
           </div>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 z-30">
             {socials.map((item, index) => (
               <div key={index}>
-                <Link href={item.link} className="text-xl">
+                <Link
+                  href={item.link}
+                  className="text-xl hover:scale-500 duration-150 hover:cursor-pointer"
+                >
                   {item.icon}
                 </Link>
               </div>
             ))}
           </div>
-          <div className="flex space-x-4">
+          <div className="inline-flex space-x-4 z-50">
             {navLinks.map((item, index) => (
               <div key={index}>
-                <Link href={item.link}>{item.label}</Link>
+                <Link
+                  href={item.link}
+                  className={`hover:scale-125 transition-transform duration-150 hover:text-amber-500 ${
+                    pathname === item.link
+                      ? "text-amber-500 font-semibold"
+                      : "text-white"
+                  } `}
+                >
+                  {item.label}
+                </Link>
               </div>
             ))}
           </div>
