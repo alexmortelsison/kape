@@ -2,6 +2,8 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import gsap from "gsap";
+import HighlightsPage from "../highlights/page";
+import Link from "next/link";
 
 export default function HomePage() {
   const opaRef = useRef(null);
@@ -27,7 +29,7 @@ export default function HomePage() {
     });
   }, []);
   return (
-    <div className="h-[100vh] overflow-hidden flex justify-center items-center relative inset-0">
+    <div className="h-[100vh] overflow-hidden flex flex-col justify-center items-center relative inset-0">
       <div className="relative -z-50 ">
         <video
           src="/coffee.mp4"
@@ -62,9 +64,11 @@ export default function HomePage() {
             className="flex justify-center items-center pt-8"
             ref={shopNowRef}
           >
-            <button className="py-4 px-12 rounded-full bg-amber-500 font-semibold hover:opacity-90 hover:cursor-pointer">
-              Shop Now
-            </button>
+            <Link href={"/highlights"}>
+              <button className="py-4 px-12 rounded-full bg-amber-500 font-semibold hover:opacity-90 hover:cursor-pointer">
+                Shop Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>
