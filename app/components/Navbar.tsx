@@ -4,10 +4,12 @@ import { BiShoppingBag } from "react-icons/bi";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaTiktok } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
+
 import { BsFacebook } from "react-icons/bs";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import gsap from "gsap";
 
 const socials = [
   { icon: <BsFacebook />, link: "" },
@@ -22,9 +24,20 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const navbarRef = useRef(null);
+  useEffect(() => {
+    gsap.to(navbarRef.current, {
+      opacity: 1,
+      delay: 2.5,
+      duration: 0.5,
+    });
+  }, []);
   const pathname = usePathname();
   return (
-    <div className="absolute text-white z-20 inset-0 flex">
+    <div
+      className="absolute text-white z-20 inset-0 flex opacity-0"
+      ref={navbarRef}
+    >
       <div className="relative mx-auto h-[100px]">
         <div className="absolute inset-0 z-10"></div>
         <div className="flex justify-between w-screen items-center border-b border-dashed max-w-7xl">

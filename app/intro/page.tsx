@@ -18,7 +18,6 @@ export default function IntroPage() {
       y: -1000,
       delay: 1,
       duration: 1.2,
-      ease: "power2.inOut",
     });
     gsap.to(opaRef.current, {
       opacity: 0,

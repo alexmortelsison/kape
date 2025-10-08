@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import localFont from "next/font/local";
+import ConditionalNavbar from "./components/ConditionalNavbar";
 
 const daffiys = localFont({
   src: "../public/fonts/Daffiys.ttf",
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body
         className={`${daffiys.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ConditionalNavbar />
         {children}
       </body>
     </html>
