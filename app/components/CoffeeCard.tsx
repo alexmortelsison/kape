@@ -9,14 +9,14 @@ interface CoffeeProps {
 
 export default function CoffeeCard({ name, src, desc }: CoffeeProps) {
   return (
-    <div className="border rounded-lg border-[#1a100d] shadow-[#1a100d] shadow-2xl hover:scale-150">
+    <div className="border rounded-lg border-[#1a100d] shadow-[#1a100d] shadow-2xl hover:scale-150 pt-8">
       <div className="relative">
         <Image
           src={src}
           width={500}
           height={500}
           alt="coffee"
-          className="object-cover rounded-lg w-[500px] h-[600px]"
+          className="object-cover rounded-lg xl:w-[500px] xl:h-[600px] lg:w-[300px] lg:h-[400px]"
         />
         <div className="absolute bg-gradient-to-b from-black via-transparent to-black/30 inset-0 rounded-lg"></div>
         <div className="absolute top-0  pl-4 pt-16 text-white">
